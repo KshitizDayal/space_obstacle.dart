@@ -31,7 +31,15 @@ class GameStart extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.info),
+                ),
+              ),
+              const SizedBox(height: 20),
               const Text("Space Obstacle Game", style: TextstyleAsset.bold60),
               const SizedBox(height: 40),
               Image.asset(
