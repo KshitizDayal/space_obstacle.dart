@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:space_obstacle/constants/color_assets.dart';
+import 'package:space_obstacle/constants/game_color.dart';
 import 'package:space_obstacle/constants/textstyle_assets.dart';
 
 import '../constants/screen_id.dart';
@@ -51,11 +51,11 @@ class GameStart extends StatelessWidget {
               ElevatedButton(
                 onPressed: startGame,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorAssets.secondary,
+                  backgroundColor: GameColor.secondary,
                 ),
                 child: const Text(
                   "Press here to start the game",
-                  style: TextStyle(fontSize: 20, color: ColorAssets.text),
+                  style: TextStyle(fontSize: 20, color: GameColor.text),
                 ),
               ),
               const SizedBox(height: 60),
@@ -64,7 +64,7 @@ class GameStart extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: ColorAssets.white,
+                  color: GameColor.white,
                 ),
               ),
             ],
