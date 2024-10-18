@@ -1,21 +1,28 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:space_obstacle/game/main_game.dart';
+import 'package:space_obstacle/screens/game_info.dart';
+import 'package:space_obstacle/screens/game_level.dart';
+import 'package:space_obstacle/screens/game_pause.dart';
+import 'package:space_obstacle/screens/game_start.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'constants/screen_id.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final game = MainGame();
+  // await SecureStorage.instance.checkUserHighScore();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Space Obstacle Game',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Text('Flutter Demo Home Page'),
-    );
-  }
+  runApp(
+    GameWidget(
+      game: game,
+      initialActiveOverlays: const [ScreenId.gameStart],
+      overlayBuilderMap: {
+        ScreenId.gameStart: (context, _) => GameStart(game: game),
+        ScreenId.gamePause: (context, _) => GamePause(game: game),
+        ScreenId.gameInfo: (context, _) => GameInfo(game: game),
+        ScreenId.gameLevel: (context, _) => GameLevel(game: game),
+      },
+    ),
+  );
 }
