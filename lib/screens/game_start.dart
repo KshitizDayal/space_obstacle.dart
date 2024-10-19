@@ -11,7 +11,7 @@ class GameStart extends StatelessWidget {
 
   const GameStart({super.key, required this.game});
 
-  final String backgroundImage = "assets/images/background.png";
+  final String backgroundImage = "assets/images/background.jpg";
   final String ufoImage = "assets/images/ufo.png";
 
   @override
@@ -40,7 +40,7 @@ class GameStart extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const Text("Space Obstacle Game", style: TextstyleAsset.bold60),
+              const Text("Space Obstacle Game", style: TextstyleAsset.bold45),
               const SizedBox(height: 40),
               Image.asset(
                 ufoImage,
