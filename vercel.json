@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "dnf install -y unzip xz > /dev/null 2>&1 || true; [ -d flutter ] || git clone --depth 1 --branch 3.47.5 https://github.com/flutter/flutter.git flutter",
+  "buildCommand": "flutter/bin/flutter config --no-analytics && flutter/bin/flutter build web --release",
+  "outputDirectory": "build/web"
+}
