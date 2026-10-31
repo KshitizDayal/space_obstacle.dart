@@ -16,7 +16,6 @@ class GameStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    game.pauseEngine();
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -34,9 +33,18 @@ class GameStart extends StatelessWidget {
               const SizedBox(height: 20),
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.info),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: game.openSettings,
+                      icon: const Icon(Icons.settings),
+                    ),
+                    IconButton(
+                      onPressed: () => game.overlays.add(ScreenId.gameInfo),
+                      icon: const Icon(Icons.info),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 20),
@@ -49,7 +57,7 @@ class GameStart extends StatelessWidget {
               const SizedBox(height: 40),
               const SizedBox(height: 40),
               ElevatedButton(
-                onPressed: startGame,
+                onPressed: game.startGame,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: GameColor.secondary,
                 ),
@@ -59,9 +67,9 @@ class GameStart extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 60),
-              const Text(
-                "Highest Score: 0",
-                style: TextStyle(
+              Text(
+                "Highest Score: ${game.bestScore}",
+                style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: GameColor.white,
@@ -72,10 +80,5 @@ class GameStart extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void startGame() {
-    game.overlays.remove("gameStart");
-    game.resumeEngine();
   }
 }

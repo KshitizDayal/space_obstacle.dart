@@ -5,13 +5,13 @@ import '../game/main_game.dart';
 
 class GameLevel extends StatelessWidget {
   final MainGame game;
-  static const String id = ScreenId.gameStart;
+  static const String id = ScreenId.gameLevel;
 
   const GameLevel({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
+    return Scaffold(
       body: Container(),
     );
   }

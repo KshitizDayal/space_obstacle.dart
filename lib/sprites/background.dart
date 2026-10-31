@@ -6,13 +6,13 @@ import 'package:space_obstacle/game/main_game.dart';
 
 import '../constants/game_assets.dart';
 
-class Background extends SpriteComponent with HasGameRef<MainGame> {
+class Background extends SpriteComponent with HasGameReference<MainGame> {
   Background();
 
   @override
   FutureOr<void> onLoad() async {
     final background = await Flame.images.load(GameAssets.background);
-    size = gameRef.size;
+    size = game.size;
     sprite = Sprite(background);
     return super.onLoad();
   }

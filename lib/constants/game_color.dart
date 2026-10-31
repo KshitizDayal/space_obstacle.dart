@@ -7,4 +7,7 @@ class GameColor {
   static const Color secondary = Color(0xFF97FEED);
   static const Color tertiary = Color(0xFFE4B1F0);
   static const Color text = Color(0xFF433878);
+  static const Color danger = Color(0xFFFF6B6B);
+  static const Color coin = Color(0xFFFFD54F);
+  static const Color fuel = Color(0xFF66BB6A);
 }
